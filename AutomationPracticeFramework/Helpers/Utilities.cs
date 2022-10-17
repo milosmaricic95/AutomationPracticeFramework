@@ -31,6 +31,12 @@ namespace AutomationPracticeFramework.Helpers
             wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(locator)).Click();
         }
 
+        public void ClearInputField(By locator)
+        {
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(15));
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(locator)).Clear();
+        }
+
         public void DropdownSelect(By select, string option)
         {
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(15));
