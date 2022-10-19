@@ -6,19 +6,18 @@ using System.Text;
 
 namespace AutomationPracticeFramework.Pages
 {
-    class MyAccountPage
+    class MyWishlist
     {
         readonly IWebDriver driver;
-        public By myAccountPage = By.Id("my-account");
-        public By successfulLogin = By.ClassName("info-account");
-        public By myWishlist = By.ClassName("lnk_wishlist");
+        public By formWishlist = By.Id("mywishlist");
+        public By newWishlist = By.Id("name");
+        public By submitWishlist = By.Id("submitWishlist");
 
-
-        public MyAccountPage(IWebDriver driver)
+        public MyWishlist(IWebDriver driver)
         {
             this.driver = driver;
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(15));
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementExists(myAccountPage));
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementExists(formWishlist));
         }
     }
 }

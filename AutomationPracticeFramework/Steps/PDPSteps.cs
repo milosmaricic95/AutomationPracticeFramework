@@ -35,9 +35,9 @@ namespace AutomationPracticeFramework.Steps
         [Given(@"increases quantity to '(.*)'")]
         public void GivenIncreasesQuantityTo(string qty)
         {
-            PDPPage pdp = new PDPPage(Driver);
             By iframe = By.ClassName("fancybox-iframe");
             Driver.SwitchTo().Frame(Driver.FindElement(iframe));
+            PDPPage pdp = new PDPPage(Driver);
             //Driver.FindElement(pdp.quantity).Clear();
             ut.ClearInputField(pdp.quantiity);
             ut.EnterTextInElement(pdp.quantiity, qty);
@@ -54,7 +54,8 @@ namespace AutomationPracticeFramework.Steps
         [When(@"user proceeds to checkout")]
         public void WhenUserProceedsToCheckout()
         {
-            ScenarioContext.Current.Pending();
+            PDPPage pdp = new PDPPage(Driver);
+            
         }
         
         [Then(@"cart is opened and product is added to cart")]

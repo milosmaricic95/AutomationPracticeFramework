@@ -19,5 +19,6 @@ namespace AutomationPracticeFramework.Helpers
         public const string MobilePhone = "0800555333";
         public const string AddressAlias = "QA kurs";
         public const string State = "New York";
+        public const string Name = "mywishlist";
     }
 }
