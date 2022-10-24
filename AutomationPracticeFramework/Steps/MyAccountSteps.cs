@@ -111,8 +111,8 @@ namespace AutomationPracticeFramework.Steps
         public void ThenClickSave()
         {
             MyWishlist mw = new MyWishlist(Driver);
-           
-        }
+            Assert.That(mw.MyWishlistIsDisplayed("Wishlist is not displayed inside"));
+        }   
     }
 }
 

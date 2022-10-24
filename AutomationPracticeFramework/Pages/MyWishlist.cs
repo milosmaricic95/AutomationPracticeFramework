@@ -19,5 +19,12 @@ namespace AutomationPracticeFramework.Pages
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(15));
             wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementExists(formWishlist));
         }
+
+        public bool MyWishlistIsDisplayed(string title)
+        {
+            By link = By.XPath("//td//a[contains(text(),'" + title + "')]");
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(15));
+            return wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementExists(link)).Displayed;
+        }
     }
 }
