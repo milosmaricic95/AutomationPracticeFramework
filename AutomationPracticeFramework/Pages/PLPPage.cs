@@ -6,19 +6,18 @@ using System.Text;
 
 namespace AutomationPracticeFramework.Pages
 {
-    class MyAccountPage
+    class PLPPage
     {
         readonly IWebDriver driver;
-        public By myAccountPage = By.Id("my-account");
-        public By successfulLogin = By.ClassName("info-account");
-        public By myWishlist = By.ClassName("lnk_wishlist");
 
+        public By plpPage = By.Id("category");
+        public By firstProduct = By.CssSelector(".product_img_link .replace-2x");
 
-        public MyAccountPage(IWebDriver driver)
+        public PLPPage(IWebDriver driver)
         {
             this.driver = driver;
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(15));
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementExists(myAccountPage));
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementExists(plpPage));
         }
     }
 }

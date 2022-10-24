@@ -91,6 +91,28 @@ namespace AutomationPracticeFramework.Steps
             Assert.True(ut.TextPresentInElement(personData.FullName).Displayed, "User's full name is not displayed");
         }
 
+        [When(@"click on mywishlist")]
+        public void WhenClickOn()
+        {
+            MyAccountPage map = new MyAccountPage(Driver);
+            ut.ClickOnElement(map.myWishlist);
+
+        }
+
+        [Then(@"type in new wishlist")]
+        public void ThenTypeInNewWishlist()
+        {
+            MyWishlist mw = new MyWishlist(Driver);
+            ut.EnterTextInElement(mw.newWishlist, ut.GenerateRandomString());
+     
+        }
+
+        [Then(@"click save")]
+        public void ThenClickSave()
+        {
+            MyWishlist mw = new MyWishlist(Driver);
+            Assert.That(mw.MyWishlistIsDisplayed("Wishlist is not displayed inside"));
+        }   
     }
 }
 

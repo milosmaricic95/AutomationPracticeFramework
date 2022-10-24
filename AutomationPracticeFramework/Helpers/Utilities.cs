@@ -20,6 +20,11 @@ namespace AutomationPracticeFramework.Helpers
             return string.Format("email{0}@mailinator.com", RandomName.Next(10000, 100000));
         }
 
+        public string GenerateRandomString()
+        {
+            return string.Format("wishlist{0}", RandomName.Next(10000, 100000));
+        }
+
         internal void EnterTextInElement(Action<string> searchField, string term)
         {
             throw new NotImplementedException();
@@ -31,6 +36,12 @@ namespace AutomationPracticeFramework.Helpers
             wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(locator)).Click();
         }
 
+        public void ClearInputField(By locator)
+        {
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(15));
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(locator)).Clear();
+        }
+
         public void DropdownSelect(By select, string option)
         {
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(15));
@@ -40,7 +51,7 @@ namespace AutomationPracticeFramework.Helpers
             selectElement.SelectByText(option);
         }
 
-        public  void EnterTextInElement(By locator, string text)
+        public void EnterTextInElement(By locator, string text)
         {
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(15));
             wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(locator)).SendKeys(text);
@@ -57,5 +68,10 @@ namespace AutomationPracticeFramework.Helpers
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(15));
             return wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(textElement));
         }
+
+       
+        
+         
     }
 }
+

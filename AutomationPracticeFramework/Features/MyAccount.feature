@@ -17,3 +17,11 @@ Scenario: User can create an account
 		When submits the sign up form
 		Then user will be logged in 
 		And user's full name is displayed
+
+Scenario: User can create new wishlist
+		Given Clicks on the Sign in link
+		And Fill in the Email address with 'milos.maricic.95@gmail.com' and Password 'milos123'
+		When Click on the Sign in button
+		And click on mywishlist
+		Then type in new wishlist
+		And click save
