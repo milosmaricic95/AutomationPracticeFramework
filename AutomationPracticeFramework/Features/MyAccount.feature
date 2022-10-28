@@ -25,3 +25,12 @@ Scenario: User can create new wishlist
 		And click on mywishlist
 		Then type in new wishlist
 		And click save
+
+Scenario: User can update last name 
+		Given Clicks on the Sign in link
+		And Fill in the Email address with 'milos.maricic.95@gmail.com' and Password 'milos123'
+		When Click on the Sign in button
+		And Click on my personal information
+		Then update last name section
+		And click save button
+		And message 'Your personal information has been successfully updated.' is shown to the user

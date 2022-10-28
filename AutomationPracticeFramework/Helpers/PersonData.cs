@@ -8,5 +8,6 @@ namespace AutomationPracticeFramework.Helpers
     {
         public string FullName;
         public string GeneratedEmail;
+        public const string Password = "milos123";
     }
 }
