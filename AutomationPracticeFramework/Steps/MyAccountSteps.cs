@@ -46,7 +46,6 @@ namespace AutomationPracticeFramework.Steps
             Assert.That(ut.ReturnTextFromElement(map.successfulLogin), Is.EqualTo(successMessage), "The user could not log in");
         }
 
-
         [Given(@"initiates a flow for creating an account")]
         public void GivenInitiatesAFlowForCreatingAnAccount()
         {
@@ -111,8 +110,40 @@ namespace AutomationPracticeFramework.Steps
         public void ThenClickSave()
         {
             MyWishlist mw = new MyWishlist(Driver);
-            Assert.That(mw.MyWishlistIsDisplayed("Wishlist is not displayed inside"));
-        }   
+            ut.ClickOnElement(mw.submitWishlist);
+        }
+
+        [When(@"Click on my personal information")]
+        public void WhenClickOnMyPersonalInformation()
+        {
+            MyPersonalInforamtion mpi = new MyPersonalInforamtion(Driver);
+            ut.ClickOnElement(mpi.MyPersonalInformation);
+        }
+
+        [Then(@"update last name section")]
+        public void ThenUpdateLastNameSection()
+        {
+            PersonDetails pd = new PersonDetails(Driver);
+            ut.ClearInputField(pd.lastName);
+            ut.EnterTextInElement(pd.lastName, TestConstants.LastName);
+            ut.EnterTextInElement(pd.oldPassword, PersonData.Password);
+        }
+
+        [Then(@"click save button")]
+        public void ThenClickSaveButton()
+        {
+            PersonDetails pd = new PersonDetails(Driver);
+            ut.ClickOnElement(pd.saveBtn);
+        }
+
+
+        [Then(@"message '(.*)' is shown to the user")]
+        public void ThenMessageIsShownToTheUser(string updateMsg)
+        {
+            PersonDetails pd = new PersonDetails(Driver);
+            Assert.True(pd.SuccessfullyUpdatedDetails(updateMsg), "User could not update personal info");
+        }
+
     }
 }
 

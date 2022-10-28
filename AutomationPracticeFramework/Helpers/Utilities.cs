@@ -25,6 +25,11 @@ namespace AutomationPracticeFramework.Helpers
             return string.Format("wishlist{0}", RandomName.Next(10000, 100000));
         }
 
+        public string GenerateRandomName()
+        {
+            return string.Format("{0}", RandomName.Next(10000, 100000));
+        }
+
         internal void EnterTextInElement(Action<string> searchField, string term)
         {
             throw new NotImplementedException();
